@@ -30,7 +30,7 @@ const server = new ApolloServer({
       createUser: (parent, args, ctx) => {
         const user = { id: randomUUID(), name: args.name };
         users.push(user);
-        return `User ${args.name} created!`;
+        return user
       },
     },
   },
