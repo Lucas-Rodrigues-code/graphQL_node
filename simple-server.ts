@@ -27,10 +27,10 @@ const server = new ApolloServer({
       users: () => users,
     },
     Mutation: {
-      createUser: (parent, args, ctx) => {
+      createUser: (parent: any, args: any) => {
         const user = { id: randomUUID(), name: args.name };
         users.push(user);
-        return user
+        return user;
       },
     },
   },
