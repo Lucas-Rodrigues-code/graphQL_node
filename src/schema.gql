@@ -3,6 +3,11 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
+type Appointment {
+  endsAt: DateTimeISO!
+  startAt: DateTimeISO!
+}
+
 input CreateAppointmentInput {
   customerId: String!
   endsAt: DateTimeISO!
@@ -15,9 +20,9 @@ A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `dat
 scalar DateTimeISO
 
 type Mutation {
-  createAppointment(data: CreateAppointmentInput!): String!
+  createAppointment(data: CreateAppointmentInput!): Appointment!
 }
 
 type Query {
-  hello: String!
+  appointments: [Appointment!]!
 }
